@@ -122,7 +122,7 @@ nmap <F8> :TagbarToggle<CR>
 
 " Vim Config
 let g:ycm_path_to_python_interpreter="/usr/bin/python"
-set clipboard=unnamed
+set clipboard=unnamed,unnamedplus
 set incsearch
 set nocompatible
 set wildmenu
