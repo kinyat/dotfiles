@@ -106,3 +106,5 @@ if [[ ! -z $TMUX ]]; then printf '\n'; fi
 # tabtab source for sls package
 # uninstall by removing these lines or running `tabtab uninstall sls`
 [[ -f /Users/ericchan/npm/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/ericchan/npm/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
+export PATH="/usr/local/opt/node@8/bin:$PATH"
+eval $(thefuck --alias)

@@ -27,10 +27,16 @@ Plug 'Chiel92/vim-autoformat'
 Plug 'jparise/vim-graphql'
 Plug 'osyo-manga/vim-over'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'leafgarland/typescript-vim'
+Plug 'Quramy/tsuquyomi'
+"Plug 'Quramy/vim-dtsm'
 
 call plug#end()
 
 let mapleader = "\<Space>"
+
+" indent
+autocmd FileType Jenkinsfile setlocal expandtab shiftwidth=2 tabstop=2
 
 " command-t
 function! CommandTAcceptSelectionTab()
@@ -40,19 +46,29 @@ endfunction
 " autoformat
 nnoremap <F3> :Autoformat<CR>
 
+" ts tsuquyomi
+"autocmd FileType typescript setlocal completeopt-=menu
+
 " ale
 let g:ale_fixers = {
 \   'javascript': ['standard'],
+\   'typescript': ['standard'],
 \}
 let g:ale_linters = {
 \  'javascript': ['standard'],
+\  'typescript': ['standard'],
 \}
 let g:ale_completion_enabled = 1
 let g:airline#extensions#ale#enabled = 1
 let g:ale_lint_on_text_changed = "never"
 let g:ale_javascript_prettier_standard_options = '--env jest'
 let g:ale_javascript_standard_options = '--env jest'
+let g:ale_typescript_prettier_standard_options = '--env jest'
+let g:ale_typescript_standard_options = '--env jest'
 nnoremap <Leader>f :ALEFix<CR>
+
+" Fix cursor disappear
+autocmd BufWinLeave * :silent !tput cvvis
 
 " Whiltespace
 highlight ExtraWhitespace ctermbg=red guibg=red
@@ -154,6 +170,9 @@ let g:CommandTWildIgnore=&wildignore . ",*/bower_components,*/node_modules,*/ven
 
 " YouCompleteMe
 let g:ycm_autoclose_preview_window_after_completion=1
+"let g:ycm_filetype_blacklist = {
+  "\'typescript': 1
+"\}
 
 " ag
 if executable('ag')
@@ -182,4 +201,4 @@ autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 let g:AutoPairsFlyMode = 1
 
 " over
-nnoremap : :OverCommandLine<CR>
+"nnoremap : :OverCommandLine<CR>
