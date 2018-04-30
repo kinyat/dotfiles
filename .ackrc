@@ -1,0 +1,2 @@
+--type-set=ts=.ts,.tsx
+--type-set=tsdef:match:/.+\.d\.ts/

@@ -28,7 +28,8 @@ Plug 'jparise/vim-graphql'
 Plug 'osyo-manga/vim-over'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'leafgarland/typescript-vim'
-Plug 'Quramy/tsuquyomi'
+Plug 'wikitopian/hardmode'
+"Plug 'Quramy/tsuquyomi'
 "Plug 'Quramy/vim-dtsm'
 
 call plug#end()
@@ -121,7 +122,6 @@ imap <right> <nop>
 nmap <F8> :TagbarToggle<CR>
 
 " Vim Config
-let g:ycm_path_to_python_interpreter="/usr/bin/python"
 set clipboard=unnamed,unnamedplus
 set incsearch
 set nocompatible
@@ -169,7 +169,9 @@ endif
 let g:CommandTWildIgnore=&wildignore . ",*/bower_components,*/node_modules,*/vendor"
 
 " YouCompleteMe
+let g:ycm_path_to_python_interpreter="/usr/bin/python"
 let g:ycm_autoclose_preview_window_after_completion=1
+let g:ycm_key_invoke_completion = '<C-Space>'
 "let g:ycm_filetype_blacklist = {
   "\'typescript': 1
 "\}
@@ -202,3 +204,13 @@ let g:AutoPairsFlyMode = 1
 
 " over
 "nnoremap : :OverCommandLine<CR>
+
+" Hard Mode
+"autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
+nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
+
+" NERDTree
+" enable line numbers
+let NERDTreeShowLineNumbers=1
+" make sure relative line numbers are used
+autocmd FileType nerdtree setlocal relativenumber"

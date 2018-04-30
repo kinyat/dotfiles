@@ -14,6 +14,7 @@ Simply symlink the dotfile you want
 ln -s ~/dotfiles/.vimrc
 ln -s ~/dotfiles/.tmux.conf
 ln -s ~/dotfiles/.zshrc
+ln -s ~/dotfiles/.ackrc
 ```
 
 Make your terminal to run the following script when opening
