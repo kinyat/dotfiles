@@ -29,6 +29,7 @@ Plug 'osyo-manga/vim-over'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'leafgarland/typescript-vim'
 Plug 'wikitopian/hardmode'
+Plug 'JamshedVesuna/vim-markdown-preview'
 "Plug 'Quramy/tsuquyomi'
 "Plug 'Quramy/vim-dtsm'
 
@@ -38,6 +39,8 @@ let mapleader = "\<Space>"
 
 " indent
 autocmd FileType Jenkinsfile setlocal expandtab shiftwidth=2 tabstop=2
+autocmd FileType Jenkinsfile setlocal expandtab shiftwidth=2 tabstop=2
+autocmd FileType markdown setlocal expandtab shiftwidth=4 tabstop=4
 
 " command-t
 function! CommandTAcceptSelectionTab()
@@ -214,3 +217,8 @@ nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
 let NERDTreeShowLineNumbers=1
 " make sure relative line numbers are used
 autocmd FileType nerdtree setlocal relativenumber"
+
+" Markdown
+let vim_markdown_preview_toggle=1
+let vim_markdown_preview_hotkey='<C-p>'
+let vim_markdown_preview_github=1

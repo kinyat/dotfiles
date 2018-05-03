@@ -1,41 +1,51 @@
 # dotfiles
 
+## Pre-Install
+
+1. Install [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
+
+2. Install [powerlevel9k](https://github.com/bhilburn/powerlevel9k)
+
+3. Install [powerline-font](https://github.com/powerline/fonts)
+
 ## Install
 
-Git Clone in your home dir
+1. Git Clone in your home dir
 
-```bash
-git clone git@github.com:kinyat/dotfiles.git
-```
+    ```bash
+    git clone git@github.com:kinyat/dotfiles.git
+    ```
 
-Simply symlink the dotfile you want
+2. Simply symlink the dotfile you want
 
-```bash
-ln -s ~/dotfiles/.vimrc
-ln -s ~/dotfiles/.tmux.conf
-ln -s ~/dotfiles/.zshrc
-ln -s ~/dotfiles/.ackrc
-```
+    ```bash
+    ln -s ~/dotfiles/.vimrc
+    ln -s ~/dotfiles/.tmux.conf
+    ln -s ~/dotfiles/.zshrc
+    ln -s ~/dotfiles/.ackrc
+    ```
 
-Make your terminal to run the following script when opening
+3. Make your terminal to run the following script when opening
 
-```bash
-# Mac iTerm2
-tmux ls && read tmux_session && tmux -2 attach -t ${tmux_session:-default} || tmux -2 new -s ${tmux_session:-default}
+    ```bash
+    # Mac iTerm2
+    tmux ls && read tmux_session && tmux -2 attach -t ${tmux_session:-default} || tmux -2 new -s ${tmux_session:-default}
 
-# Ubuntu Terminal
-sh -c "tmux ls && read tmux_session && tmux -2 attach -t ${tmux_session:-default} || tmux -2 new -s ${tmux_session:-default}"
-```
+    # Ubuntu Terminal
+    sh -c "tmux ls && read tmux_session && tmux -2 attach -t ${tmux_session:-default} || tmux -2 new -s ${tmux_session:-default}"
+    ```
 
-To make clipboard works in Ubuntu
+4. To make clipboard works in Ubuntu
 
-```bash
-sudo apt install -y vim-gtk xclip
-```
+    ```bash
+    sudo apt install -y vim-gtk xclip
+    ```
 
-Custom setting for Mac in Tmux
+5. Custom setting for Mac in Tmux
 
-```bash
-# edit .tmux.conf and uncomment the following
-set -g default-command "reattach-to-user-namespace -l ${SHELL}"
-```
+    ```bash
+    # edit .tmux.conf and uncomment the following
+    set -g default-command "reattach-to-user-namespace -l ${SHELL}"
+    ```
+
+6. Insatll [YouCompleteMe](https://github.com/Valloric/YouCompleteMe#installation)
