@@ -219,6 +219,7 @@ let NERDTreeShowLineNumbers=1
 autocmd FileType nerdtree setlocal relativenumber"
 
 " Markdown
-let vim_markdown_preview_toggle=1
+let vim_markdown_preview_toggle=0
 let vim_markdown_preview_hotkey='<C-p>'
 let vim_markdown_preview_github=1
+"let vim_markdown_preview_temp_file=1
