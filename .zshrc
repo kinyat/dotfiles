@@ -20,6 +20,7 @@ maketags () {
 #ZSH_THEME="agnoster"
 POWERLEVEL9K_MODE='awesome-patched'
 ZSH_THEME="powerlevel9k/powerlevel9k"
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir virtualenv vcs)
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -108,3 +109,19 @@ if [[ ! -z $TMUX ]]; then printf '\n'; fi
 [[ -f /Users/ericchan/npm/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/ericchan/npm/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
 export PATH="/usr/local/opt/node@8/bin:$PATH"
 eval $(thefuck --alias)
+
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh"  ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+# gitlab-runner
+gitrun () {
+  ssh admin@192.168.1.124
+}
+
+alias python=python3
+alias pip=pip3
+export PATH=~/.local/bin:$PATH
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+set -o ignoreeof

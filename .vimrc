@@ -30,8 +30,19 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'leafgarland/typescript-vim'
 Plug 'wikitopian/hardmode'
 Plug 'JamshedVesuna/vim-markdown-preview'
-"Plug 'Quramy/tsuquyomi'
-"Plug 'Quramy/vim-dtsm'
+Plug 'Quramy/tsuquyomi'
+" Plug 'Quramy/vim-dtsm'
+Plug 'reedes/vim-lexical'
+Plug 'majutsushi/tagbar'
+Plug 'shawncplus/phpcomplete.vim'
+Plug 'arnaud-lb/vim-php-namespace'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'python-mode/python-mode', { 'branch': 'develop' }
+Plug 'plytophogy/vim-virtualenv'
+Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
+
+" Required by tagbar for js tag
+Plug 'ternjs/tern_for_vim'
 
 call plug#end()
 
@@ -50,26 +61,40 @@ endfunction
 " autoformat
 nnoremap <F3> :Autoformat<CR>
 
+" typescript-vim
+let g:typescript_compiler_options = '-p ' . getcwd() . '/tsconfig.json'
+
 " ts tsuquyomi
 "autocmd FileType typescript setlocal completeopt-=menu
+autocmd FileType typescript nmap <buffer> <Leader>e <Plug>(TsuquyomiRenameSymbol)
+autocmd FileType typescript nmap <buffer> <Leader>E <Plug>(TsuquyomiRenameSymbolC)
 
 " ale
 let g:ale_fixers = {
 \   'javascript': ['standard'],
-\   'typescript': ['standard'],
+\   'typescript': ['tslint'],
 \}
 let g:ale_linters = {
 \  'javascript': ['standard'],
-\  'typescript': ['standard'],
+\  'typescript': ['tslint'],
 \}
 let g:ale_completion_enabled = 1
 let g:airline#extensions#ale#enabled = 1
 let g:ale_lint_on_text_changed = "never"
 let g:ale_javascript_prettier_standard_options = '--env jest'
 let g:ale_javascript_standard_options = '--env jest'
-let g:ale_typescript_prettier_standard_options = '--env jest'
-let g:ale_typescript_standard_options = '--env jest'
+" let g:ale_typescript_prettier_standard_options = '--env jest'
+" let g:ale_typescript_standard_options = '--env jest'
 nnoremap <Leader>f :ALEFix<CR>
+
+if empty($VIRTUAL_ENV)
+  let g:ale_python_pylint_executable="pylint"
+else
+  let g:ale_python_pylint_executable="PYTHONPATH=./ " . $VIRTUAL_ENV . "/bin/pylint"
+endif
+
+" Disable syntax highlighting on huge file
+autocmd BufReadPre * if getfsize(expand("%")) > 200000 | ALEDisable | else | ALEEnable | endif
 
 " Fix cursor disappear
 autocmd BufWinLeave * :silent !tput cvvis
@@ -172,7 +197,14 @@ endif
 let g:CommandTWildIgnore=&wildignore . ",*/bower_components,*/node_modules,*/vendor"
 
 " YouCompleteMe
-let g:ycm_path_to_python_interpreter="/usr/bin/python"
+" let g:ycm_path_to_python_interpreter="python3"
+
+" if empty($VIRTUAL_ENV)
+  " let g:ycm_python_binary_path="python3"
+" else
+  " let g:ycm_python_binary_path=$VIRTUAL_ENV . "/bin/python3"
+" endif
+
 let g:ycm_autoclose_preview_window_after_completion=1
 let g:ycm_key_invoke_completion = '<C-Space>'
 "let g:ycm_filetype_blacklist = {
@@ -223,3 +255,52 @@ let vim_markdown_preview_toggle=0
 let vim_markdown_preview_hotkey='<C-p>'
 let vim_markdown_preview_github=1
 "let vim_markdown_preview_temp_file=1
+
+" nerdcommenter
+let NERDSpaceDelims=1
+
+" reedes/vim-lexical Spell Check
+augroup lexical
+  autocmd!
+  autocmd FileType yaml call lexical#init()
+  autocmd FileType javascript call lexical#init()
+  autocmd FileType typescript call lexical#init()
+  autocmd FileType markdown,mkd call lexical#init()
+  autocmd FileType textile call lexical#init()
+  autocmd FileType text call lexical#init()
+augroup END
+
+" tagbar
+nmap <F8> :TagbarToggle<CR>
+let g:tagbar_type_typescript = {
+  \ 'ctagsbin' : 'tstags',
+  \ 'ctagsargs' : '-f-',
+  \ 'kinds': [
+    \ 'e:enums:0:1',
+    \ 'f:function:0:1',
+    \ 't:typealias:0:1',
+    \ 'M:Module:0:1',
+    \ 'I:import:0:1',
+    \ 'i:interface:0:1',
+    \ 'C:class:0:1',
+    \ 'm:method:0:1',
+    \ 'p:property:0:1',
+    \ 'v:variable:0:1',
+    \ 'c:const:0:1',
+  \ ],
+  \ 'sort' : 0
+\ }
+
+" vim-php-namespace
+" function! IPhpInsertUse()
+    " call PhpInsertUse()
+    " call feedkeys('a',  'n')
+" endfunction
+" autocmd FileType php inoremap <Leader>u <Esc>:call IPhpInsertUse()<CR>
+" autocmd FileType php noremap <Leader>u :call PhpInsertUse()<CR>
+" autocmd FileType php inoremap <Leader>e <Esc>:call IPhpExpandClass()<CR>
+" autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
+" autocmd FileType php inoremap <Leader>s <Esc>:call PhpSortUse()<CR>
+" autocmd FileType php noremap <Leader>s :call PhpSortUse()<CR>
+
+let g:php_namespace_sort_after_insert = 1
