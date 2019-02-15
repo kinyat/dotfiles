@@ -6,7 +6,7 @@
 
 2. Install [powerlevel9k](https://github.com/bhilburn/powerlevel9k)
 
-3. Install [powerline-font](https://github.com/powerline/fonts)
+3. Install [awesome-terminal-fonts](https://github.com/gabrielelana/awesome-terminal-fonts)
 
 ## Install
 
