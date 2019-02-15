@@ -14,13 +14,19 @@ maketags () {
   es-ctags -R .
 }
 
+flushdns () {
+  dscacheutil -flushcache
+  sudo killall -HUP mDNSResponder
+}
+
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 #ZSH_THEME="agnoster"
 POWERLEVEL9K_MODE='awesome-patched'
+# POWERLEVEL9K_MODE='awesome-fontconfig'
 ZSH_THEME="powerlevel9k/powerlevel9k"
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir virtualenv vcs)
+# POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir virtualenv vcs)
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -122,6 +128,7 @@ gitrun () {
 alias python=python3
 alias pip=pip3
 export PATH=~/.local/bin:$PATH
-
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export JAVA_HOME=$(/usr/libexec/java_home)
+export PATH="$HOME/Library/Python/3.7/bin/:$JAVA_HOME/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:/usr/local/lib/ruby/gems/2.5.0/bin:$PATH"
 set -o ignoreeof
+source ~/.fonts/*.sh

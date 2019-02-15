@@ -30,7 +30,7 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'leafgarland/typescript-vim'
 Plug 'wikitopian/hardmode'
 Plug 'JamshedVesuna/vim-markdown-preview'
-Plug 'Quramy/tsuquyomi'
+Plug 'Quramy/tsuquyomi', { 'branch': 'master' }
 " Plug 'Quramy/vim-dtsm'
 Plug 'reedes/vim-lexical'
 Plug 'majutsushi/tagbar'
@@ -52,6 +52,7 @@ let mapleader = "\<Space>"
 autocmd FileType Jenkinsfile setlocal expandtab shiftwidth=2 tabstop=2
 autocmd FileType Jenkinsfile setlocal expandtab shiftwidth=2 tabstop=2
 autocmd FileType markdown setlocal expandtab shiftwidth=4 tabstop=4
+autocmd FileType make setlocal noexpandtab
 
 " command-t
 function! CommandTAcceptSelectionTab()
@@ -68,6 +69,7 @@ let g:typescript_compiler_options = '-p ' . getcwd() . '/tsconfig.json'
 "autocmd FileType typescript setlocal completeopt-=menu
 autocmd FileType typescript nmap <buffer> <Leader>e <Plug>(TsuquyomiRenameSymbol)
 autocmd FileType typescript nmap <buffer> <Leader>E <Plug>(TsuquyomiRenameSymbolC)
+let g:tsuquyomi_disable_quickfix = 1
 
 " ale
 let g:ale_fixers = {
@@ -133,10 +135,10 @@ set mouse+=a
 set ttymouse=xterm2
 
 " Disable Arrow keys in Escape mode
-nnoremap <up> <nop>
-nnoremap <down> <nop>
-nnoremap <left> <nop>
-nnoremap <right> <nop>
+" nnoremap <up> <nop>
+" nnoremap <down> <nop>
+" nnoremap <left> <nop>
+" nnoremap <right> <nop>
 
 nnoremap <Leader>h :set hlsearch!<CR>
 
@@ -197,6 +199,10 @@ endif
 let g:CommandTWildIgnore=&wildignore . ",*/bower_components,*/node_modules,*/vendor"
 
 " YouCompleteMe
+set shortmess+=c
+set completeopt-=preview
+let g:clang_complete_auto = 0
+
 " let g:ycm_path_to_python_interpreter="python3"
 
 " if empty($VIRTUAL_ENV)
