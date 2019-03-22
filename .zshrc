@@ -131,4 +131,6 @@ export PATH=~/.local/bin:$PATH
 export JAVA_HOME=$(/usr/libexec/java_home)
 export PATH="$HOME/Library/Python/3.7/bin/:$JAVA_HOME/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:/usr/local/lib/ruby/gems/2.5.0/bin:$PATH"
 set -o ignoreeof
-source ~/.fonts/*.sh
+# source ~/.fonts/*.sh
+source /usr/local/opt/powerlevel9k/powerlevel9k.zsh-theme
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
