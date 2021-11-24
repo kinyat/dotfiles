@@ -51,3 +51,7 @@
     ```
 
 6. Insatll [YouCompleteMe](https://github.com/Valloric/YouCompleteMe#installation)
+
+7. Install Tmux TPM plugins (see: https://github.com/tmux-plugins/tpm#key-bindings)
+
+    In Tmux: `prefix` + <kbd>I</kbd>
