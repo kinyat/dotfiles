@@ -8,6 +8,8 @@
 
 3. Install [awesome-terminal-fonts](https://github.com/gabrielelana/awesome-terminal-fonts)
 
+4. Install [tpm](https://github.com/tmux-plugins/tpm)
+
 ## Install
 
 1. Git Clone in your home dir
