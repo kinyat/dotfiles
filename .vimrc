@@ -1,50 +1,50 @@
-call plug#begin('~/.vim/plugged')
+"call plug#begin('~/.vim/plugged')
 
 "Plug 'https://github.com/vim-syntastic/syntastic.git'
-Plug 'https://github.com/Valloric/YouCompleteMe.git'
-Plug 'tpope/vim-sleuth'
-Plug '907th/vim-auto-save'
-Plug 'isRuslan/vim-es6'
-Plug 'vim-airline/vim-airline'
-Plug 'tpope/vim-fugitive'
-Plug 'martinda/Jenkinsfile-vim-syntax'
-Plug 'flazz/vim-colorschemes'
-Plug 'wincent/command-t'
-Plug 'jiangmiao/auto-pairs'
-Plug 'chrisbra/vim-diff-enhanced'
-Plug 'scrooloose/nerdcommenter'
-Plug 'universal-ctags/ctags'
-Plug 'Galooshi/vim-import-js'
-Plug 'tpope/vim-surround'
-Plug 'gioele/vim-autoswap'
-Plug 'majutsushi/tagbar'
-Plug 'dkprice/vim-easygrep'
-Plug 'scrooloose/nerdtree'
-Plug 'mileszs/ack.vim'
-Plug 'w0rp/ale'
-Plug 'airblade/vim-gitgutter'
-Plug 'Chiel92/vim-autoformat'
-Plug 'jparise/vim-graphql'
-Plug 'osyo-manga/vim-over'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'leafgarland/typescript-vim'
-Plug 'wikitopian/hardmode'
-Plug 'JamshedVesuna/vim-markdown-preview'
-Plug 'Quramy/tsuquyomi', { 'branch': 'master' }
+"Plug 'https://github.com/Valloric/YouCompleteMe.git'
+"Plug 'tpope/vim-sleuth'
+"Plug '907th/vim-auto-save'
+"Plug 'isRuslan/vim-es6'
+"Plug 'vim-airline/vim-airline'
+"Plug 'tpope/vim-fugitive'
+"Plug 'martinda/Jenkinsfile-vim-syntax'
+"Plug 'flazz/vim-colorschemes'
+"Plug 'wincent/command-t'
+"Plug 'jiangmiao/auto-pairs'
+"Plug 'chrisbra/vim-diff-enhanced'
+"Plug 'scrooloose/nerdcommenter'
+"Plug 'universal-ctags/ctags'
+"Plug 'Galooshi/vim-import-js'
+"Plug 'tpope/vim-surround'
+"Plug 'gioele/vim-autoswap'
+"Plug 'majutsushi/tagbar'
+"Plug 'dkprice/vim-easygrep'
+"Plug 'scrooloose/nerdtree'
+"Plug 'mileszs/ack.vim'
+"Plug 'w0rp/ale'
+"Plug 'airblade/vim-gitgutter'
+"Plug 'Chiel92/vim-autoformat'
+"Plug 'jparise/vim-graphql'
+"Plug 'osyo-manga/vim-over'
+"Plug 'terryma/vim-multiple-cursors'
+"Plug 'leafgarland/typescript-vim'
+"Plug 'wikitopian/hardmode'
+"Plug 'JamshedVesuna/vim-markdown-preview'
+"Plug 'Quramy/tsuquyomi', { 'branch': 'master' }
 " Plug 'Quramy/vim-dtsm'
-Plug 'reedes/vim-lexical'
-Plug 'majutsushi/tagbar'
-Plug 'shawncplus/phpcomplete.vim'
-Plug 'arnaud-lb/vim-php-namespace'
-Plug 'ludovicchabant/vim-gutentags'
-Plug 'python-mode/python-mode', { 'branch': 'develop' }
-Plug 'plytophogy/vim-virtualenv'
-Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
+"Plug 'reedes/vim-lexical'
+"Plug 'majutsushi/tagbar'
+"Plug 'shawncplus/phpcomplete.vim'
+"Plug 'arnaud-lb/vim-php-namespace'
+"Plug 'ludovicchabant/vim-gutentags'
+"Plug 'python-mode/python-mode', { 'branch': 'develop' }
+"Plug 'plytophogy/vim-virtualenv'
+"Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
 
 " Required by tagbar for js tag
-Plug 'ternjs/tern_for_vim'
+"Plug 'ternjs/tern_for_vim'
 
-call plug#end()
+"call plug#end()
 
 let mapleader = "\<Space>"
 
@@ -163,7 +163,7 @@ set backspace=indent,eol,start
 set splitright
 set splitbelow
 " setlocal spell
-colorscheme transparent
+" colorscheme transparent
 
 "set autoread
 "function! SyntasticCheckHook(errors)
@@ -309,4 +309,4 @@ let g:tagbar_type_typescript = {
 " autocmd FileType php inoremap <Leader>s <Esc>:call PhpSortUse()<CR>
 " autocmd FileType php noremap <Leader>s :call PhpSortUse()<CR>
 
-let g:php_namespace_sort_after_insert = 1
+"let g:php_namespace_sort_after_insert = 1
